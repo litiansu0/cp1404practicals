@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <title>Wikipedia Search - {% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+<body>
+<div id="nav">
+    <a href="{{ url_for('home') }}">Home</a> |
+    <a href="{{ url_for('search') }}">Search</a>
+</div>
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+<div id="footer">
+    <p>Wikipedia Search App - Powered by Flask & Wikipedia API</p>
+</div>
+</body>
+</html>

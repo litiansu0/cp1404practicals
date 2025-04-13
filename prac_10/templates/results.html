@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Results{% endblock %}
+{% block content %}
+    <h1>Search Result</h1>
+
+    {% if page.status == 'ok' %}
+        <h2>{{ page.title }}</h2>
+        <p>{{ page.summary }}</p>
+        <p><a href="{{ page.url }}" target="_blank">{{ page.url }}</a></p>
+
+    {% elif page.status == 'disambiguation' %}
+        <p>{{ page.message }}</p>
+        <ul>
+            {% for option in page.options %}
+                <li>{{ option }}</li>
+            {% endfor %}
+        </ul>
+
+    {% elif page.status == 'error' %}
+        <p style="color: red;">{{ page.message }}</p>
+
+    {% else %}
+        <p>Unexpected issue occurred.</p>
+    {% endif %}
+{% endblock %}
