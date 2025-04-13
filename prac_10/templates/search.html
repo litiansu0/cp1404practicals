@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}Search Wikipedia{% endblock %}
+{% block content %}
+    <h1>Search Wikipedia</h1>
+    <form method="post" action="{{ url_for('search') }}">
+        <label for="search">Enter search term:</label>
+        <input type="text" id="search" name="search" required>
+        <button type="submit">Search</button>
+    </form>
+{% endblock %}
